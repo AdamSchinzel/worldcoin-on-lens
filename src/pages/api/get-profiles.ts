@@ -5,6 +5,7 @@ const projectId = "worldcoin-on-lens";
 
 const credentials = {
   client_email: process.env.CLIENT_EMAIL,
+  // @ts-ignore
   private_key: process.env.PRIVATE_KEY.split(String.raw`\n`).join("\n"),
 };
 
