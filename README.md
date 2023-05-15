@@ -1,4 +1,8 @@
-# Next.js Starter
+# Worldcoin on Lens
+
+## About
+
+Find out which people have World ID verified on Lens.
 
 ## Documentation
 
@@ -33,7 +37,7 @@ pnpm start
 ## Folder structure
 
 ```bash
-nextjs-starter/
+worldcoin-on-lens/
 ├── config
 ├── public
 └── src
@@ -42,8 +46,11 @@ nextjs-starter/
     │   ├── layouts
     │   ├── modules
     │   └── templates
+    ├── graphql
     ├── hooks
     ├── pages
     ├── services
-    └── stores
+    ├── types
+    └── utils
+
 ```

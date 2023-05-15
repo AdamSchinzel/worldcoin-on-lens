@@ -1,4 +1,3 @@
-import { ColorModeScript } from "@chakra-ui/react";
 import { Head, Html, Main, NextScript } from "next/document";
 
 const Document = () => {
@@ -7,10 +6,9 @@ const Document = () => {
       <Head>
         <meta name="viewport" content="width=device-width initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="A TypeScript starter for Next.js." />
+        <meta name="description" content="Find out which people have World ID verified on Lens." />
       </Head>
       <body>
-        <ColorModeScript initialColorMode="dark" />
         <Main />
         <NextScript />
       </body>

@@ -7,7 +7,7 @@ interface IHeadingProps {
 
 const Heading = ({ text, description }: IHeadingProps) => {
   return (
-    <VStack>
+    <VStack textAlign="center" px={5}>
       <Text fontSize="3xl" fontWeight="black">
         {text}
       </Text>

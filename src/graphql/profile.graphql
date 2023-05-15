@@ -1,0 +1,17 @@
+query Profile($request: SingleProfileQueryRequest!) {
+  profile(request: $request) {
+    name
+    handle
+    bio
+    ownedBy
+    picture {
+      original {
+        url
+      }
+    }
+    stats {
+      totalFollowers
+      totalFollowing
+    }
+  }
+}
