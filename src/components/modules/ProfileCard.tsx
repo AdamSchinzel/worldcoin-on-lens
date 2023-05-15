@@ -16,6 +16,7 @@ interface IProfileCardProps {
 const ProfileCard = ({ profileId, joined }: IProfileCardProps) => {
   const { data } = useProfileQuery({ variables: { request: { profileId: profileId } } });
 
+  // @ts-ignore
   const src = useBuildResourceSrc(data?.profile?.picture?.original?.url);
 
   return (
