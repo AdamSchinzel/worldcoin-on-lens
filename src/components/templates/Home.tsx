@@ -46,7 +46,6 @@ const Home = () => {
     const profilesData = await res.json();
     setProfiles(profilesData.results);
     setLoadingProfiles(false);
-    console.log(profilesData.results);
   };
 
   const getLatestBlock = async () => {
