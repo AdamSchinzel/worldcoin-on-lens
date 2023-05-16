@@ -2,6 +2,7 @@ import { useProfileQuery } from "@/graphql/generated";
 import useBuildResourceSrc from "@/hooks/useBuildResourceSrc";
 import formatDate from "@/utils/formatDate";
 import getStampFyiURL from "@/utils/getPlaceholderAvatar";
+import removeLensSuffix from "@/utils/removeLensSuffix";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { Badge, Flex, HStack, Skeleton, Text } from "@chakra-ui/react";
 import Image from "next/image";
@@ -40,7 +41,11 @@ const ProfileCard = ({ profileId, joined }: IProfileCardProps) => {
       )}
       <Flex flexDir="column" alignItems="flex-start" ml={5}>
         <Text fontWeight="bold" fontSize="xl">
-          {!loading ? data?.profile?.name ?? data?.profile?.handle : <Skeleton height="18px" width="140px" />}
+          {!loading ? (
+            data?.profile?.name ?? data?.profile?.handle.replace(/\.lens$/, "")
+          ) : (
+            <Skeleton height="18px" width="140px" />
+          )}
         </Text>
         <Link href={`https://lenster.xyz/u/${data?.profile?.handle}`} target="_blank">
           <Text
