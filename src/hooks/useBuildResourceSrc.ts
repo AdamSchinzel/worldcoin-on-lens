@@ -1,4 +1,4 @@
-import { IPFS_GATEWAY, IPFS_REGEX } from "@/config/constants";
+import { IPFS_GATEWAY_URL, IPFS_REGEX } from "@/config/constants";
 
 const extractIpfsHash = (ifpsUrl: string) => {
   const match = IPFS_REGEX.exec(ifpsUrl);
@@ -12,7 +12,7 @@ const extractIpfsHash = (ifpsUrl: string) => {
 
 const useBuildResourceSrc = (src: string) => {
   if (IPFS_REGEX.test(src)) {
-    return `${IPFS_GATEWAY}${extractIpfsHash(src)}`;
+    return `${IPFS_GATEWAY_URL}${extractIpfsHash(src)}`;
   }
 
   return src;
