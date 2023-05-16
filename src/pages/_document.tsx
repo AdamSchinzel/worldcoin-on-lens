@@ -5,7 +5,7 @@ const Document = () => {
     <Html lang="en">
       <Head>
         <meta name="viewport" content="width=device-width initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/static/favicon.ico" />
         <meta name="description" content="Find out which people have World ID verified on Lens." />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://worlcoin-on-lens.vercel.app/" />

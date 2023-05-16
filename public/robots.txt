@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://worlcoin-on-lens.vercel.app/
+
+# Sitemaps
+Sitemap: https://worlcoin-on-lens.vercel.app/sitemap.xml

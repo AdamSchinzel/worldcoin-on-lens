@@ -1,0 +1,21 @@
+{
+  "name": "Worldcoin on Lens",
+  "short_name": "Find out which people have World ID verified on Lens",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#38A169",
+  "theme_color": "#614DE2",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/static/favicon.svg",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/static/twitter-image.png",
+      "type": "image/png",
+      "sizes": "420x250"
+    }
+  ]
+}
