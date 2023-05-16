@@ -1,4 +1,4 @@
-type Block = {
+type LastBlock = {
   block_hash: string;
   blockNumber: number;
   block_timestamp: {
@@ -10,4 +10,4 @@ type Block = {
   };
 };
 
-export default Block;
+export default LastBlock;

@@ -1,9 +1,7 @@
-const ipfsGateway = "https://lens.infura-ipfs.io/ipfs/";
-
-const ipfsRegex = /^ipfs:\/\/(.*)$/;
+import { IPFS_GATEWAY, IPFS_REGEX } from "@/config/constants";
 
 const extractIpfsHash = (ifpsUrl: string) => {
-  const match = ipfsRegex.exec(ifpsUrl);
+  const match = IPFS_REGEX.exec(ifpsUrl);
 
   if (!(match && match[1])) {
     throw new Error("Invalid IPFS URL");
@@ -13,8 +11,8 @@ const extractIpfsHash = (ifpsUrl: string) => {
 };
 
 const useBuildResourceSrc = (src: string) => {
-  if (ipfsRegex.test(src)) {
-    return `${ipfsGateway}${extractIpfsHash(src)}`;
+  if (IPFS_REGEX.test(src)) {
+    return `${IPFS_GATEWAY}${extractIpfsHash(src)}`;
   }
 
   return src;

@@ -1,6 +1,6 @@
 import { TOAST_DURATION } from "@/config/constants";
+import LastBlock from "@/types/LastBlock";
 import Profile from "@/types/Profile";
-import Block from "@/types/block";
 import copyToClipboard from "@/utils/copyToClipboard";
 import truncateBlockHash from "@/utils/truncateBlockHash";
 import { CopyIcon } from "@chakra-ui/icons";
@@ -24,7 +24,7 @@ import ProfileCard from "../modules/ProfileCard";
 
 const Home = () => {
   const [profiles, setProfiles] = useState<Array<Profile>>([]);
-  const [block, setBlock] = useState<Block>();
+  const [lastBlock, setLastBlock] = useState<LastBlock>();
   const [loadingProfiles, setLoadingProfiles] = useState<boolean>(false);
   const [loadingBlock, setLoadingBlock] = useState<boolean>(false);
 
@@ -58,7 +58,7 @@ const Home = () => {
     setLoadingBlock(true);
     const res = await fetch("api/get-latest-block");
     const blockData = await res.json();
-    setBlock(blockData.results[0]);
+    setLastBlock(blockData.results[0]);
     setLoadingBlock(false);
   };
 
@@ -105,10 +105,10 @@ const Home = () => {
           <>
             <Stat textAlign="center">
               <StatLabel>
-                Latest block
-                <CopyIcon cursor="pointer" onClick={() => handleCopyToClipboard(block?.block_hash)} mx="2px" />
+                Last block
+                <CopyIcon cursor="pointer" onClick={() => handleCopyToClipboard(lastBlock?.block_hash)} mx="2px" />
               </StatLabel>
-              <StatNumber>{truncateBlockHash(block?.block_hash)}</StatNumber>
+              <StatNumber>{truncateBlockHash(lastBlock?.block_hash)}</StatNumber>
             </Stat>
             <Stat textAlign="center">
               <StatLabel>Accounts verified</StatLabel>
