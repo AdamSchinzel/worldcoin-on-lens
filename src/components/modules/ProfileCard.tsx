@@ -2,7 +2,6 @@ import { useProfileQuery } from "@/graphql/generated";
 import useBuildResourceSrc from "@/hooks/useBuildResourceSrc";
 import formatDate from "@/utils/formatDate";
 import getStampFyiURL from "@/utils/getPlaceholderAvatar";
-import removeLensSuffix from "@/utils/removeLensSuffix";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { Badge, Flex, HStack, Skeleton, Text } from "@chakra-ui/react";
 import Image from "next/image";
