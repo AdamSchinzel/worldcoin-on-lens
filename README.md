@@ -1,7 +1,5 @@
 # Worldcoin on Lens
 
-## About
-
 Find out which people have World ID verified on Lens.
 
 ## Documentation
