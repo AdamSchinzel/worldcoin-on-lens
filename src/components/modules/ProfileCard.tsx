@@ -54,7 +54,7 @@ const ProfileCard = ({ profileId, joined }: IProfileCardProps) => {
             <ExternalLinkIcon ml={1} w={3} />
           </Text>
         </Link>
-        <Text>{data?.profile?.bio ?? <Skeleton height="16px" width="200px" />}</Text>
+        <Text>{data?.profile?.bio ? data?.profile?.bio : <Skeleton height="16px" width="200px" />}</Text>
         <HStack mt={3} spacing={[0, 3]} flexDir={["column", "row"]} alignItems="flex-start">
           <HStack spacing={2}>
             {data?.profile?.stats.totalFollowing ? (
