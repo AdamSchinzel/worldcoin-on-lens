@@ -11,7 +11,7 @@ const Document = () => {
         <meta property="twitter:url" content="https://worlcoin-on-lens.vercel.app/" />
         <meta property="twitter:title" content="Worldcoin on Lens" />
         <meta property="twitter:description" content="Find out which people have World ID verified on Lens." />
-        <meta property="twitter:image" content="/twitter-image.png" />
+        <meta property="twitter:image" content="/static/twitter-image.png" />
         <meta property="twitter:image:alt" content="Worldcoin on Lens banner" />
       </Head>
       <body>
