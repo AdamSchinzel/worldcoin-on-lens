@@ -3,7 +3,7 @@ import useBuildResourceSrc from "@/hooks/useBuildResourceSrc";
 import formatDate from "@/utils/formatDate";
 import getStampFyiURL from "@/utils/getPlaceholderAvatar";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
-import { Badge, Flex, HStack, Text } from "@chakra-ui/react";
+import { Badge, Flex, HStack, Skeleton, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -27,31 +27,51 @@ const ProfileCard = ({ profileId, joined }: IProfileCardProps) => {
       borderRadius="6px"
       mx={[5, 0, 0, 0]}
       w={["95%", "85%", "75%", "700px"]}>
-      <Image
-        src={src ?? getStampFyiURL(data?.profile?.ownedBy?.toLowerCase())}
-        alt={data?.profile?.handle}
-        width={50}
-        height={50}
-        style={{ borderRadius: "100%" }}
-      />
+      {src ? (
+        <Image
+          src={src ?? getStampFyiURL(data?.profile?.ownedBy?.toLowerCase())}
+          alt={data?.profile?.handle}
+          width={50}
+          height={50}
+          style={{ borderRadius: "100%" }}
+        />
+      ) : (
+        <Skeleton height="50px" width="50px" borderRadius="100%" />
+      )}
       <Flex flexDir="column" alignItems="flex-start" ml={5}>
         <Text fontWeight="bold" fontSize="xl">
-          {data?.profile?.name ?? data?.profile?.handle}
+          {data?.profile?.name ?? data?.profile?.handle ?? <Skeleton height="18px" width="140px" />}
         </Text>
         <Link href={`https://lenster.xyz/u/${data?.profile?.handle}`} target="_blank">
-          <Text cursor="pointer" color="gray.500" mb={3} _hover={{ textDecoration: "underline" }}>
-            {data?.profile?.handle}
+          <Text
+            cursor="pointer"
+            color="gray.500"
+            mb={3}
+            _hover={{ textDecoration: "underline" }}
+            display="flex"
+            alignItems="center">
+            {data?.profile?.handle ?? <Skeleton mt={2} height="16px" width="120px" />}
             <ExternalLinkIcon ml={1} w={3} />
           </Text>
         </Link>
-        <Text>{data?.profile?.bio}</Text>
+        <Text>{data?.profile?.bio ?? <Skeleton height="16px" width="200px" />}</Text>
         <HStack mt={3} spacing={[0, 3]} flexDir={["column", "row"]} alignItems="flex-start">
-          <HStack spacing={0}>
-            <Text fontWeight="bold">{data?.profile?.stats.totalFollowing}&nbsp;</Text>
+          <HStack spacing={2}>
+            {data?.profile?.stats.totalFollowing ? (
+              <Text fontWeight="bold">{data?.profile?.stats.totalFollowing}</Text>
+            ) : (
+              <Skeleton height="16px" width="36px" />
+            )}
+            &nbsp;
             <Text>following</Text>
           </HStack>
-          <HStack spacing={0}>
-            <Text fontWeight="bold">{data?.profile?.stats.totalFollowers}&nbsp;</Text>
+          <HStack spacing={2}>
+            {data?.profile?.stats.totalFollowers ? (
+              <Text fontWeight="bold">{data?.profile?.stats.totalFollowers}</Text>
+            ) : (
+              <Skeleton height="16px" width="36px" />
+            )}
+            &nbsp;
             <Text>followers</Text>
           </HStack>
           <Badge py={1} px={2}>
