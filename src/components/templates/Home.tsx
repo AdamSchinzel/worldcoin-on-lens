@@ -66,12 +66,12 @@ const Home = () => {
       <Heading text="Worldcoin on Lens" description="Find out which people have World ID verified on Lens" />
       <ButtonGroup gap={[0, 3, 3, 3]} mt={25} flexDir={["column", "row", "row", "row"]} alignItems="center">
         <Link href="https://worldcoin.org/download-app" passHref target="_blank">
-          <Button variant="outline" colorScheme="blue" size={["md", "lg"]}>
+          <Button variant="outline" colorScheme="green" size={["md", "lg"]}>
             Get World ID
           </Button>
         </Link>
         <Link href="https://human.withlens.app/" passHref target="_blank">
-          <Button colorScheme="blue" size={["md", "lg"]}>
+          <Button colorScheme="green" size={["md", "lg"]}>
             Verify World ID with Lens
           </Button>
         </Link>
