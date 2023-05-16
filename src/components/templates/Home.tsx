@@ -44,6 +44,12 @@ const Home = () => {
     setLoadingProfiles(true);
     const res = await fetch("api/get-profiles");
     const profilesData = await res.json();
+
+    profilesData.results.sort((a: Profile, b: Profile) => {
+      // @ts-ignore
+      return new Date(a.block_timestamp.value) - new Date(b.block_timestamp.value);
+    });
+
     setProfiles(profilesData.results);
     setLoadingProfiles(false);
   };

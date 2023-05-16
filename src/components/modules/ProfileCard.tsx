@@ -14,7 +14,7 @@ interface IProfileCardProps {
 }
 
 const ProfileCard = ({ profileId, joined }: IProfileCardProps) => {
-  const { data } = useProfileQuery({ variables: { request: { profileId: profileId } } });
+  const { data, loading } = useProfileQuery({ variables: { request: { profileId: profileId } } });
 
   // @ts-ignore
   const src = useBuildResourceSrc(data?.profile?.picture?.original?.url);
@@ -27,7 +27,7 @@ const ProfileCard = ({ profileId, joined }: IProfileCardProps) => {
       borderRadius="6px"
       mx={[5, 0, 0, 0]}
       w={["95%", "85%", "75%", "700px"]}>
-      {src ? (
+      {!loading ? (
         <Image
           src={src ?? getStampFyiURL(data?.profile?.ownedBy?.toLowerCase())}
           alt={data?.profile?.handle}
@@ -40,7 +40,7 @@ const ProfileCard = ({ profileId, joined }: IProfileCardProps) => {
       )}
       <Flex flexDir="column" alignItems="flex-start" ml={5}>
         <Text fontWeight="bold" fontSize="xl">
-          {data?.profile?.name ?? data?.profile?.handle ?? <Skeleton height="18px" width="140px" />}
+          {!loading ? data?.profile?.name ?? data?.profile?.handle : <Skeleton height="18px" width="140px" />}
         </Text>
         <Link href={`https://lenster.xyz/u/${data?.profile?.handle}`} target="_blank">
           <Text
@@ -50,14 +50,14 @@ const ProfileCard = ({ profileId, joined }: IProfileCardProps) => {
             _hover={{ textDecoration: "underline" }}
             display="flex"
             alignItems="center">
-            {data?.profile?.handle ?? <Skeleton mt={2} height="16px" width="120px" />}
+            {!loading ? data?.profile?.handle : <Skeleton mt={2} height="16px" width="120px" />}
             <ExternalLinkIcon ml={1} w={3} />
           </Text>
         </Link>
-        <Text>{data?.profile?.bio ? data?.profile?.bio : <Skeleton height="16px" width="200px" />}</Text>
+        <Text>{!loading ? data?.profile?.bio : <Skeleton height="16px" width="200px" />}</Text>
         <HStack mt={3} spacing={[0, 3]} flexDir={["column", "row"]} alignItems="flex-start">
           <HStack spacing={2}>
-            {data?.profile?.stats.totalFollowing ? (
+            {!loading ? (
               <Text fontWeight="bold">{data?.profile?.stats.totalFollowing}</Text>
             ) : (
               <Skeleton height="16px" width="36px" />
@@ -66,7 +66,7 @@ const ProfileCard = ({ profileId, joined }: IProfileCardProps) => {
             <Text>following</Text>
           </HStack>
           <HStack spacing={2}>
-            {data?.profile?.stats.totalFollowers ? (
+            {!loading ? (
               <Text fontWeight="bold">{data?.profile?.stats.totalFollowers}</Text>
             ) : (
               <Skeleton height="16px" width="36px" />
