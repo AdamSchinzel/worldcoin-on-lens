@@ -83,7 +83,7 @@ const Home = () => {
         </Link>
       </ButtonGroup>
       <HStack mt={12} gap={[5, 20]} flexDir={["column", "row", "row", "row"]} alignItems="center">
-        {loadingProfiles || loadingBlock ? (
+        {loadingProfiles || loadingBlock || !profiles || !lastBlock ? (
           <>
             <Stat textAlign="center">
               <StatLabel>
