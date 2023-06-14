@@ -13,6 +13,8 @@ Project is based on `Next.js`, a production-ready React Framework. Check out the
 
 ## Usage
 
+Before you start make sure that you have all ENV variables set. You can find all required variables in `.env.example` file.
+
 **Firstly, install all necessary dependencies:**
 
 ```sh
