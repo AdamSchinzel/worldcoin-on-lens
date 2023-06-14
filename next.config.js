@@ -11,6 +11,9 @@ module.exports = {
       {
         hostname: "cdn.stamp.fyi",
       },
+      {
+        hostname: "ik.imagekit.io",
+      },
     ],
   },
 };

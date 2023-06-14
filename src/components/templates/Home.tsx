@@ -118,7 +118,7 @@ const Home = () => {
         )}
       </HStack>
       {loadingProfiles ? (
-        <Spinner mt={100} size="lg" />
+        <Spinner mt={100} size="lg" thickness="3px" speed="0.75s" emptyColor="gray.200" color="green.300" />
       ) : (
         <VStack my={35} gap={3}>
           {profiles.map((profile: Profile) => (
